@@ -3,8 +3,8 @@ import re
 import django.dispatch
 from django.core.urlresolvers import resolve
 from django.conf import settings
-from django.utils.importlib import import_module
-from django.http  import  HttpResponseRedirect
+from django.utils.module_loading import import_module
+from django.http import HttpResponseRedirect
 from django.contrib.sessions.middleware import SessionMiddleware
 # Obscure the session id when passing it around in HTML
 from cookieless.utils import CryptSession
@@ -15,6 +15,7 @@ from cookieless.config import LINKS_RE, DEFAULT_SETTINGS
 # NB: There is the django.contrib.sessions.models.Session model to hook to, 
 #     but creates and saves happen later and for both cookie and cookieless sessions
 cookieless_signal = django.dispatch.Signal() 
+
 
 class CookielessSessionMiddleware(object):
     """ Django snippets julio carlos and Ivscar 
