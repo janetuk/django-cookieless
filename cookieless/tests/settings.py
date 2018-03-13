@@ -17,9 +17,9 @@ COOKIELESS['USE_GET'] = True
 
 # NB: Need to add django.core.context_processors.request if using manual tags
 # so its available for templatetags/cookieless
-if not COOKIELESS['REWRITE']:
-    import django.conf.global_settings as DEFAULT_SETTINGS
-    TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS + ('django.core.context_processors.request', )
+# if not COOKIELESS['REWRITE']:
+#     from django.conf import settings as DEFAULT_SETTINGS
+#     TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATES[0]['OPTIONS']['context_processors'] + ('django.core.context_processors.request', )
 
 # Use client ip and browser to encode session key, to add some CSRF protection without being able to use cookies.
 COOKIELESS['CLIENT_ID'] = True

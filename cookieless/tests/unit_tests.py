@@ -1,7 +1,7 @@
 from django.conf import settings
-from django.utils import unittest
+import unittest
 from django.test.client import RequestFactory
-from django.utils.importlib import import_module
+from django.utils.module_loading import import_module
 
 from cookieless.utils import CryptSession
 from cookieless.config import DEFAULT_SETTINGS

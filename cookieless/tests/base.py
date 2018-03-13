@@ -2,7 +2,7 @@ from django.conf import settings
 from django.test.client import Client
 from django.test.client import RequestFactory
 from django.test import TestCase
-from django.utils.importlib import import_module
+from django.utils.module_loading import import_module
 
 from cookieless.utils import CryptSession
 from cookieless.config import DEFAULT_SETTINGS

@@ -3,7 +3,7 @@ import re
 from gzip import GzipFile
 from StringIO import StringIO
 
-from django.utils import unittest
+import unittest
 from django.conf import settings
 
 from cookieless.tests.base import BaseFuncTestCase
