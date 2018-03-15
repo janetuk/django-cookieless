@@ -1,4 +1,8 @@
 #-*- coding:utf-8 -*-
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
+
 import re
 import django.dispatch
 from django.core.urlresolvers import resolve
@@ -191,13 +195,14 @@ class CookielessSessionMiddleware(object):
 
             # Check in case response has already got a manual session_id inserted
             repl_form = '<input type="hidden" name="%s"' % name
-            if hasattr(response, 'content') and response.content.find(repl_form) == -1:
-                repl_form = '''%s value="%s" />
+            if (not response['Content-Type'] == 'application/pdf')\
+                and hasattr(response, 'content') and response.content.find(repl_form) == -1:
+                    repl_form = '''%s value="%s" />
                                </form>''' % (repl_form, session_key)
-                try:
-                    response.content = self._re_forms.sub(repl_form, response.content)
-                except:
-                    pass
+                    try:
+                        response.content = self._re_forms.sub(repl_form, response.content)
+                    except:
+                        pass
             
             return response
         else:
