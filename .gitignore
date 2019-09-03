@@ -1,0 +1,9 @@
+django_cookieless.egg-info
+build
+dist
+.pydevproject
+.project
+*.log
+*.pot
+*.pyc
+local_settings.py
