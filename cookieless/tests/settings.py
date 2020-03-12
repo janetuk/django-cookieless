@@ -71,6 +71,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "cookieless.tests.wsgi.application"
+DEBUG = True
+# TEMPLATE_DEBUG = DEBUG
 
 
 # Database
