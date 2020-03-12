@@ -1,20 +1,19 @@
-from django.urls import path
+from django.conf.urls import include, url
 from cookieless.tests.views import MyClassView
 from cookieless.tests.views import my_function_view, my_plain_view
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
-
 admin.autodiscover()
 
 from cookieless.decorators import no_cookies
 
 urlpatterns = [
     # Examples views:
-    path("function-view.html", no_cookies(my_function_view)),
-    path("plain-view.html", no_cookies(my_plain_view)),
-    path("index.html", no_cookies(MyClassView.as_view())),
-    path("", no_cookies(MyClassView.as_view())),
+    url(r'^function-view.html', no_cookies(my_function_view), name='function_view'),
+    url(r'^plain-view.html', no_cookies(my_plain_view), name='plain_view'),
+    url(r'^index.html', no_cookies(MyClassView.as_view()), name='class_view'),
+    url(r'^$', no_cookies(MyClassView.as_view()), name='class_view'),
     # Uncomment the next line to enable the admin:
-    path("admin/", admin.site.urls),
+    url(r'^admin/', include(admin.site.urls)),
 ]
