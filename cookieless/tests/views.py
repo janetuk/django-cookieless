@@ -61,4 +61,4 @@ class MyClassView(TemplateView):
         """
         context = super(MyClassView, self).get_context_data(**kwargs)
         context["session_data"] = session_data(self.request)
-        return self.render_to_response(context)
+        return self.render(request, context)
