@@ -112,9 +112,8 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.2/howto/static-files/
-
-STATIC_URL = "/static/"
+# https://docs.djangoproject.com/en/3.0/howto/static-files/
+STATIC_URL = os.path.join(BASE_DIR, '/static/')
 
 ################################## django-cookieless ################
 
@@ -145,8 +144,6 @@ COOKIELESS["URL_SPECIFIC"] = True
 
 
 #############################
-
-TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
